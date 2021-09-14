@@ -1,0 +1,43 @@
+﻿@model WebStandard.Models.Event
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Event information</h2>
+        </div>
+    </div>
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Event name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Starting date
+                </th>
+                <th>
+                    Ending date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="20%">@Model.Name</td>
+                <td width="30%">@Model.Description</td>
+                <td width="30%">@Model.StartDate.ToShortDateString()</td>
+                @if (Model.EndDate != null)
+                {
+                    <td width="30%">@Model.EndDate.Value.ToShortDateString()</td>
+                }
+                else
+                {
+                    <td width="30%"></td>
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>
